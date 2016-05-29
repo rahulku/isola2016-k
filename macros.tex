@@ -1,0 +1,139 @@
+
+\usepackage{amsmath,amssymb}
+
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{graphics}
+\usepackage{placeins}
+%\usepackage{kpfonts}
+
+\newcommand{\event}[1]{\ensuremath{\mathtt{#1}}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\ignore}[2]{
+{
+\vspace{0.5cm}
+\noindent\color{red} *** IGNORING: '#1' discussion. See source.}
+\vspace{0.5cm}
+}
+
+\newcommand{\GR}[1]{\notethis{ForestGreen}{Giles}{#1}}
+\newcommand{\GRinline}[1]{{\color{ForestGreen}{#1}}}
+\newcommand{\KH}[1]{\notethis{blue}{Klaus}{#1}}
+\newcommand{\KHinline}[1]{{\color{blue}{#1}}}
+
+\newcommand{\notethis}[3]{
+  \color{#1}
+  \vspace{0.3cm}
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+  {\sc #2 - } #3\\
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+  \vspace{0.3cm}
+  \color{black}
+}
+\newcommand{\todo}[1]{{\color{red}{#1}}}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\green}[1]{{\color{green} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+\newcommand{\orange}[1]{{\color{orange} #1}}
+
+\usepackage{listings}
+
+\lstdefinelanguage{qea}
+{morekeywords={qea,accept,skip,next,if,do,Forall,Exists,success,failure,Where,Negated,defined,and,or,Join},
+sensitive=false,
+morestring=[b]',
+breaklines=true,
+basicstyle=\ttfamily\scriptsize,
+}
+
+\lstdefinelanguage{logfire} {
+  morekeywords={class,extends,val,def,if,else,implicit},
+  sensitive=false,
+  basicstyle=\ttfamily\scriptsize,
+}
+
+% -------
+% Themes:
+% -------
+
+\newcommand{\oldtheme}[1]{\emph{#1}}
+
+\newcommand{\THsafetyliveness}{\theme{Safety versu Liveness}}
+\newcommand{\THnames}{\theme{Statemachines}}
+\newcommand{\THreachability}{\theme{Reachability}}
+\newcommand{\THnonregularity}{\theme{Non-regularity}}
+\newcommand{\THsequences}{\theme{Sequences}}
+\newcommand{\THtemporallogic}{\theme{Temporal Logic}}
+\newcommand{\THconvenient}{\theme{Convenient operators}}
+\newcommand{\THquantification}{\theme{Quantification}}
+\newcommand{\THtiming}{\theme{Time}}
+\newcommand{\THcoding}{\theme{Coding}}
+\newcommand{\THmatching}{\theme{Matching}}
+\newcommand{\THembedding}{\theme{Embedding}}
+\newcommand{\THscope}{\theme{Scope}}
+\newcommand{\THalphabet}{\theme{Alphabet}}
+\newcommand{\THmodularity}{\theme{Modularity}}
+
+\newcommand{\THdomains}{\oldtheme{Domains}}
+\newcommand{\THlocalglobalstate}{\oldtheme{Local vs. Global State}}
+\newcommand{\THpolarity}{\oldtheme{Polarity}}
+\newcommand{\THsuffix}{\oldtheme{Prefix or Suffix}}
+\newcommand{\THmixinglogics}{\oldtheme{Mixing Logics}}
+\newcommand{\THparameters}{\oldtheme{Parameters}}
+\newcommand{\THexistential}{\oldtheme{Existential Quantification}}
+\newcommand{\THspecialCase}{\oldtheme{Special Case}}
+\newcommand{\THskipnext}{\oldtheme{Skip or Next Semantics}}
+\newcommand{\THpast}{\oldtheme{Past time logic}}
+\newcommand{\THtimelines}{\oldtheme{Timelines}}
+\newcommand{\THlanguagespecific}{\oldtheme{Language Specific}}
+
+%Splitting aggregates
+\newcommand{\THcounting}{\theme{Aggregates (counting)}}
+\newcommand{\THsum}{\theme{Aggregates (sum)}}
+\newcommand{\THaverage}{\theme{Aggregates (average)}}
+
+
+\newcommand{\logfire}{{\sc LogFire}}
+\newcommand{\qea}{{\sc qea}}
+\newcommand{\marq}{{\sc MarQ}}
+\newcommand{\larva}{{\sc Larva}}
+\newcommand{\scala}{{\sc Scala}}
+\newcommand{\rete}{{\sc Rete}}
+\newcommand{\ruler}{{\sc Ruler}}
+\newcommand{\drools}{{\sc Drools}}
+\newcommand{\clips}{{\sc Clips}}
+\newcommand{\jess}{{\sc Jess}}
+\newcommand{\hammurabi}{{\sc Hammurabi}}
+\newcommand{\rooscaloo}{{\sc Rooscaloo}}
+\newcommand{\tracecontract}{{\sc TraceContract}}
+\newcommand{\daut}{{\sc Daut}}
+\newcommand{\java}{{\sc Java}}
+\newcommand{\mop}{{\sc Mop}}
+\newcommand{\mac}{{\sc Mac}}
+\newcommand{\salt}{{\sc Salt}}
+\newcommand{\timeedit}{{\sc TimeEdit}}
+\newcommand{\psl}{{\sc Psl}}
+\newcommand{\eagle}{{\sc Eagle}}
+\newcommand{\hawk}{{\sc Hawk}}
+\newcommand{\jlo}{{\sc Jlo}}
+\newcommand{\tracematches}{{\sc TraceMatches}}
+\newcommand{\metatem}{{\sc MetateM}}
+\newcommand{\logscope}{{\sc LogScope}}
+\newcommand{\haskell}{{\sc Haskell}}
+\newcommand{\mopbox}{{\sc MopBox}}
+\newcommand{\orchids}{{\sc Orchids}}
+\newcommand{\ltlfoplus}{{\sc LTL-FO}$^+$}
+\newcommand{\xml}{{\sc Xml}}
+\newcommand{\mfotl}{{\sc MFOTL}}
+\newcommand{\ltlfo}{{\sc LTL}$^{\rm FO}$}
+\newcommand{\prolog}{{\sc Prolog}}
+\newcommand{\jpax}{{\sc Jpax}}
+\newcommand{\python}{{\sc Python}}
+\newcommand{\rmor}{{\sc Rmor}}
+\newcommand{\scalatest}{{\sc ScalaTest}}
+\newcommand{\ltl}{{\sc Ltl}}
+\newcommand{\temporalrover}{{\sc TemporalRover}}
+\newcommand{\staterover}{{\sc StateRover}}
+\newcommand{\aspectj}{{\sc AspectJ}}

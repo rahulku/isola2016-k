@@ -1,0 +1,64 @@
+\documentclass{llncs}
+
+\usepackage{courier}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{eufrak}
+\usepackage{imakeidx}
+\newcommand{\dindex}[1]{\index{#1|textbf}}
+\newcommand{\theme}[1]{\emph{#1}\dindex{#1}}  
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=green,
+    filecolor=green,
+    linkcolor=blue,
+    urlcolor=green
+}
+\usepackage{wrapfig}
+
+\usetikzlibrary{arrows,automata,snakes,arrows,shapes,calc,positioning}
+\tikzstyle{accept}=[fill=gray]
+\tikzstyle{skip}=[rectangle,draw=black]
+\tikzstyle{next}=[circle,draw=black,minimum size=5mm]
+\tikzstyle{quant}=[rectangle,dashed,draw=black,minimum size=5mm]
+\tikzset{initial text={}}
+
+\input{macros}
+
+\title{Towards a Unified View of\\ Modeling and Programming }
+
+\author{
+Manfred Broy\inst{1}
+\and
+Klaus Havelund\inst{2}\thanks{The research performed by this author was carried out at Jet Propulsion Laboratory, California Institute of Technology, under a contract with the National Aeronautics and Space Administration.}
+\and 
+Rahul Kumar\inst{3} 
+\and
+Bernhard Steffen\inst{4}
+}
+\institute{
+Technische Universit{\"a}t M{\"u}nchen, Germany
+\and
+Jet Propulsion Laboratory, California Inst. of Technology, USA 
+\and
+Microsoft Research, USA
+\and
+TU Dortmund University, Germany. 
+}
+\makeindex[title=Themes]
+
+\begin{document}
+\maketitle
+\input{abstract}
+
+\input{original} % don't edit this file
+
+\input{introduction}
+% here goes the body
+\input{conclusion}
+
+\bibliography{bib}
+\bibliographystyle{abbrv}
+
+\end{document}
