@@ -34,8 +34,8 @@ Manfred Broy\inst{1}
 Klaus Havelund\inst{2}\thanks{The research performed by this author was carried out at Jet Propulsion Laboratory, California Institute of Technology, under a contract with the National Aeronautics and Space Administration.}
 \and 
 Rahul Kumar\inst{3} 
-\and
-Bernhard Steffen\inst{4}
+%\and
+%Bernhard Steffen\inst{4}
 }
 \institute{
 Technische Universit{\"a}t M{\"u}nchen, Germany
@@ -43,8 +43,8 @@ Technische Universit{\"a}t M{\"u}nchen, Germany
 Jet Propulsion Laboratory, California Inst. of Technology, USA 
 \and
 Microsoft Research, USA
-\and
-TU Dortmund University, Germany. 
+%\and
+%TU Dortmund University, Germany. 
 }
 \makeindex[title=Themes]
 
@@ -52,13 +52,17 @@ TU Dortmund University, Germany.
 \maketitle
 \input{abstract}
 
-\input{original} % don't edit this file
-
 \input{introduction}
-% here goes the body
+\input{modeling}
+\input{programming}
+\input{requirements}
 \input{conclusion}
 
 \bibliography{bib}
 \bibliographystyle{abbrv}
+
+\appendix
+
+\input{material}
 
 \end{document}
