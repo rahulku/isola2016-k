@@ -1,169 +1,0 @@
-
-
-\section{Requirements for a programming language}A specification, design and implementation language will have to 
-serve quite different goals. First of all, it has to represent the 
-concepts of the application domain at an adequate level of 
-abstraction such that the specialities of the applications domains 
-are directly represented and not covered by awkward implementation 
-concepts. This may for example include support for user-defined 
-extensions of the language with domain-specific languages (DSLs). 
-Second it has to address the structuring of algorithms and data 
-structures in a way such that programs stay understandable, modular 
-and support the most important methods of structured program 
-development. And finally it has to allow addressing specific 
-implementation properties of execution machines including their 
-operating systems, such that it can be controlled how the 
-implementation uses resources and exploits the possibilities of the 
-execution platform and its hardware. These three different goals are clearly in some contradiction. 
-Nevertheless in a piece of software all three goals have to be 
-addressed. What we would like to have is a specification, design, 
-and implementation language, which represents the concepts of the 
-application domain as adequate as possible, which allows at the 
-same time to structure the software in a readable and manageable 
-form, and which allows addressing of particular execution concepts 
-on the execution platform and the machine to the extent needed. An obvious problem here of course is to what extent then the 
-particular application domain influences the programming languages, 
-and to what extent this is true for the execution platform and also 
-for the different forms of structured design concepts. In this 
-section we shall try to outline what we see as the desired 
-requirements of a programming language. \subsection{Target domain}We can observe three major domains of interest, namely modeling; 
-programming of non-critical systems, such as web applications, 
-including scripting; and finally programming of embedded/cyber-
-physical systems. It is clear that these three domains till date 
-have been addressed by different communities and different 
-languages, as outlined above. Our goal is to address the three 
-domains in one language. Such a goal usually provokes a reactions 
-which can be summarized as
-“a silver bullet does not exist” and “each problem requires its own 
-solution”. However, we do question this constraining view based on 
-the observation that all of the languages above share a big set of 
-language constructs.\subsection{Support for modeling}This item is less well defined, and generally means support for 
-modeling and understanding a problem in addition to programming the 
-solution. This is about combining modeling and programming into one 
-language.  No separate UML models etc.  It includes design-by-
-contract as we know it, including pre- and post-conditions, as well 
-as class invariants. Such can for example be found in Eiffel as 
-well as in SPARK. However, we believe that it can be carried 
-further to for example include such topics as temporal logic, 
-program monitoring, program visualization, including diagramming of 
-static structure as well as dynamic behavior, as built in concepts, 
-and of course verification to the point where it is practical, unit 
-testing built in as in Fortress, etc.\subsection{Design and architecture: programming in the large}Large programs have to be structured. They have to be structured on 
-one hand in independent or at least rather independent pieces that 
-can be reused, independently changed, translated and executed on 
-different hardware, such that a flexible deployment is achieved. 
-They have to offer appropriate techniques for encapsulation and 
-parameterisation. This structuring may also address issues of 
-execution such as deployment and parallel execution.\subsubsection{Components, modularity and encapsulation}What is needed, in particular, is an appropriate notion of 
-component as a unit of modularity and encapsulation. Such concepts 
-exist in a lot of programming languages. However since most of the 
-programming languages we are using today are inherently sequential, 
-an independent deployment and execution model often is not directly 
-achieved.\subsubsection{Variability}A key to efficient software evolution is the identification of 
-components that can be used and reused at several places in a 
-program. This requires a sufficient amount of variability. If such 
-variability cannot be achieved then code cannot be reused at many 
-places and as a result we have to form clones, meaning similar 
-pieces of code with just small differences, such that they can be 
-used at the individual places. Another issue for variability is the 
-usage of different variations of software in the context of 
-software families. Variability is an important concept, which is 
-not very much supported explicitly by nowadays programming 
-languages.\subsection{Support for high-level programming}The specification, design, and implementation notation has to be 
-sufficiently abstract. Many formalisms used and suggested for that 
-including a lot of the programming languages force the programmers 
-to write too many details enforcing a particular style, which is 
-related to a way to describe algorithms. Therefore the resulting 
-programs get very long and more difficult to understand. The key 
-question is how to provide programming concepts that are 
-expressive, understandable, and do not enforce the explicit 
-formulation of a lot of details due to a particular algorithmic 
-style.\subsubsection{Merging object-oriented and functional programming}The elegance and the implicitly of functional programs have been 
-praised many times. Nevertheless they never had an absolute 
-breakthrough. In contrast, object oriented programming languages, 
-which in particular address encapsulation and reuse were very 
-successful. They provide entities of implementation called classes, 
-which at the same time are able to present concepts in the 
-application domain and units of execution. However, for all 
-nowadays object oriented programming languages there are a number 
-of properties, which do not allow using them in the required 
-universal modelling style. One reason for that is that object 
-oriented programming languages are inherently sequential due to 
-their remote procedure call concept. All attempts to provide 
-parallel execution models such as threads make things ugly and very 
-complex. Therefore a good idea would be to use many of the good 
-ideas in object oriented and functional programming and bringing 
-them together in powerful generalizations. A language such as Scala 
-has made this attempt, and even early versions of LISP had this 
-(CLOS). Functional programming means for example functions as 
-values (lambda abstractions) and pattern matching, and of course 
-reliance on recursion. Functional programming is by some considered 
-the best approach to use multi-core systems due to no shared state 
-updates.\subsubsection{Built-in collections}Perhaps specialized notation for these as in Fortress (very similar 
-to VDM), or as libraries. Easy ways of iterating through 
-collections – to avoid indexing problems for example. Support for 
-parallel computation over such.\subsubsection{Domain-specific data modeling}A key to programming is to capture the relevant concept of the 
-application domain and to present them in the specification design 
-and implementation notation. This is exactly where UML and also 
-SysML are quite successful. They provide a number of concepts which 
-originally were created in the area of programming and good enough 
-to allow presenting quite a number of application domain issues. A 
-typical examples are class style diagrams, which at a level of 
-programming are describing more or less architectures in terms of 
-classes and how they are connected, but can also be used as 
-possibilities to describe data models and finally ontologies as we 
-find them under the heading of meta models. In any case it is 
-important to support powerful modelling approaches in the 
-specification, design and implementation notation.\subsubsection{Typing and physical dimensions}We believe a language should be largely statically typed. It can 
-potentially allow for going type-less in clearly defined regions, 
-in case such makes modeling and programming easier. Scripting 
-languages are popular, in part because they are type-less. It would 
-be interesting to see if one could allow both approaches to be used 
-within the same language. Otherwise decades of experience in strong 
-type systems should of course be harvested, including more recent 
-topics such as dependent types, session types, and units.\subsection{Support for low-level programming}Embedded programing these days often means: no dynamic memory 
-allocation after initialization, no garbage collection, some 
-knowledge of memory layout, even to the point where computation 
-with addresses is used to improve speed. This again means use of 
-low level programming languages such as C. C, however, allows for 
-memory errors and makes programmers less effective as they would 
-otherwise be were they allowed to program in higher-level 
-languages. We need to satisfy the needs encountered by typical C 
-programmers, including offering comparable speed and memory 
-control. This includes support for hardware control.\subsection{Concurrency}Concurrency is an essential part of modern programming, especially 
-considering the emergence of multi-core computers. However, 
-concurrency is important at the modeling level as well, where it 
-can serve as a natural way to describe interacting agents. 
-Important concepts include agent systems, message passing based 
-communication, parallel data structures (programming concurrent 
-without knowing it), and distributed programming.\subsection{Execution model}The programming notation has to allow to control execution aspects. 
-Often in today’s practice, extensions are introduced that allow 
-controlling execution platforms. This is important in order to 
-provide programs that are efficient. On the other hand, it is very 
-dangerous since it mixes up domain specific concepts,  data 
-modelling, and algorithms on one hand, and issues of specific 
-execution concepts of the execution platform. Such a mix also makes 
-it very difficult to port and migrate software. A promising 
-approach could be that the specification, design, and 
-implementation notation provides possibilities to target a specific 
-execution platform by separate profiles that are in addition to the 
-description of the domain specific concepts in the algorithms. This 
-idea could be applied for time, concurrency, deployment and 
-distribution.\subsection{Analysis}A key concept in a combined modeling and programming environment is 
-the support for advanced analysis of models/programs, including, 
-but also beyond, what is normally supported in standard programming 
-environments. This ranges from basic built-in support for unit 
-testing, over advanced testing capabilities, including test input 
-generation and monitoring, to concepts such as static analysis, 
-model checking, theorem proving and symbolic execution. A core 
-requirement, however, must be the practicality of these solutions. 
-The main emphasis should be put on automation. The average user 
-should be able to benefit from automated verification, without 
-having to do manual proofs. However, support for manual theorem 
-proving should also be possible, for example for core critical 
-algorithms. Integration of static and dynamic analysis will be 
-desirable: verify what is practically feasible, and test (monitor) 
-the remaining proof obligations.
-
-
-
