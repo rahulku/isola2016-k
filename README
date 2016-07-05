@@ -1,3 +1,12 @@
 
-We don't write a special K paper for ISoLA 2016.
-We just stick with the introduction.
+This repository is empty and should be deleted.
+
+For the ISoLA 2016 track: towards a unified view of modeling and programming
+the following two respositories are used:
+
+isola-2016-unified-introduction
+  general introduction to track.
+  
+isola2016-unified:
+  special paper by Broy, Havelund and Kumar with a special view on this subject.
+  
